@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+//teste
+//teste 2.0
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form-overflow">
+        <div>
+            <a href="livros.html">
+                <img class="arrow" src="assets/arrow-left-solid.svg" alt="">
+            </a>
+        </div>
+        <div class="form-container">
+            <h1 class="form-title">Cadastro de Livro</h1>
+            <form action="#" method="post" class="book-form" id="book-form">
+                <label class="form-label" for="titulo">Título:</label>
+                <input class="form-input" type="text" id="titulo" name="titulo" required>
+
+                <label class="form-label" for="autor">Autor:</label>
+                <input class="form-input" type="text" id="autor" name="autor" required>
+
+                <!-- <label class="form-label" for="imgUrl">URL da Imagem:</label>
+                <input class="form-input" type="url" id="imgUrl" name="imgUrl"> -->
+                <!-- 
+                <label class="form-label" for="avaliacao">Avaliação:</label>
+                <input class="form-input" type="number" id="avaliacao" name="avaliacao" min="1" max="5"> -->
+
+                <label class="form-label" for="descricao">Descrição:</label>
+                <textarea class="form-textarea" id="descricao" name="descricao"></textarea>
+
+                <label class="form-label" for="quantidade">Quantidade:</label>
+                <input class="form-input" type="number" id="quantidade" name="quantidade" required>
+
+                <label class="form-label" for="Generos literários" id="genero-literario">Gêneros literários:</label>
+                <select class="form-select">
+
+                </select>
+
+
+                <label class="form-label" for="isbn">ISBN:</label>
+                <input class="form-input" type="text" id="isbn" name="isbn" required>
+
+                <label class="form-label" for="anoPublicacao">Ano de Publicação:</label>
+                <input class="form-input" type="number" id="anoPublicacao" name="anoPublicacao" required>
+
+                <label class="form-label" for="editora">Editora:</label>
+                <input class="form-input" type="text" id="editora" name="editora" required>
+
+                <button class="form-button" type="submit" id="form-button" onclick="createBook(event)">Cadastrar
+                    Livro</button>
+            </form>
+        </div>
+        <script src="./script/script.js"></script>
+
+</body>
+
+</html>
+
+<!-- arrumando o github -->

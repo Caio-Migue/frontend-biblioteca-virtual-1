@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Biblioteca Escola Dep. Oliveira Souza</title>
+</head>
+
+<body id="body">
+    <div class="theme-container" id="toggle-container">
+        <nav class="drop-down-menu">
+            <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="">
+            <div class="img-drop-down">
+                <img class="house" src="/assets/house-solid.svg" alt="">
+                <img class="book" src="/assets/book-solid.svg" alt="">
+                <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="">
+                <img class="login" src="/assets/right-to-bracket-solid.svg" alt="">
+            </div>
+            <div class="drop-down-container">
+                <img src="./assets/bars-solid (1).svg" alt="">
+            </div>
+        </nav>
+        <nav class="navbar">
+            <div class="img-container">
+                <img class="logo" src="/assets/Capturar.PNG" alt="">
+            </div>
+            <ul class="menu-list">
+                <div class="img-nav">
+                    <img class="house" src="/assets/house-solid.svg" alt="">
+                    <li><a href="index.html">Home</a></li>
+                </div>
+                <div class="img-nav">
+                    <img class="book" src="/assets/book-solid.svg" alt="">
+                    <li><a href="livros.html">Livros</a></li>
+                </div>
+                <div class="img-nav">
+                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="">
+                    <li><a href="#">Sugestões dos professores</a></li>
+                </div>
+                <div class="img-nav">
+                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="">
+                    <li><a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a></li>
+                </div>
+            </ul>
+        </nav>
+        <div class="main">
+            <div class="modal-container">
+                <div class="modal-sign-in">
+                    <form action="" name="form" id="submit-form">
+                        <label for="">Nome de usuário</label>
+                        <input id="nome-formulario" type="text">
+                        <label for="">Crie sua senha</label>
+                        <input id="senha-formulario" type="text" type="password">
+                        <label for="">Confirme sua senha</label>
+                        <input id="confirmar-senha" type="text" type="password">
+                        <label for="">telefone</label>
+                        <input id="telefone-formulario" type="tel">
+                        <label for="">Email</label>
+                        <input id="email-formulario" type="email">
+                        <label for="">Endereço</label>
+                        <input id="endereco-formulario" type="text">
+                        <button onclick="submitForm(event)">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="theme-toggle-container">
+                <div class="button-container" onclick="toggleTheme()">
+                    <button id="btn"></button>
+                </div>
+            </div>
+            <section class="slider-wrapper">
+                <ul class="slides-container" id="slides-container">
+                    <li class="slide" id="slide1">
+                        <div class="content-slide">
+                            <img src="./assets/Recomendação dos professores.png" alt="">
+                        </div>
+                    </li>
+                    <li class="slide" id="slide2">
+                        <div class="content-slide">
+                            <img src="./assets/Clássicos.png" alt="">
+                        </div>
+                    </li>
+                    <li class="slide" id="slide3">
+                        <div class="content-slide">
+                            <img src="./assets/Aventura.png" alt="">
+                        </div>
+                    </li>
+                    <li class="slide" id="slide4">
+                        <div class="content-slide">
+                            <img src="./assets/Fantasia.png" alt="">
+                        </div>
+                    </li>
+                    <li class="slide" id="slide5">
+                        <div class="content-slide">
+                            <img src="./assets/Romance.png" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <div class="genre-container">
+
+            </div>
+            <div class="most-rented">
+                <h1 class="most-rented-title">Mais Alugados</h1>
+                <div class="most-rented-container">
+                    <ul class="list-books">
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">1</p>
+                                <img src="/assets/hamlet.jpg" alt="">
+                                <p>Hamlet</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">2</p>
+                                <img src="/assets/Anne Frank.jpg" alt="">
+                                <p>Anne Frank</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">3</p>
+                                <img src="/assets/hamlet.jpg" alt="">
+                                <p>Hamlet</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">4</p>
+                                <img src="/assets/Anne Frank.jpg" alt="">
+                                <p>Anne Frank</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">5</p>
+                                <img src="/assets/hamlet.jpg" alt="">
+                                <p>Hamlet</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">6</p>
+                                <img src="/assets/Anne Frank.jpg" alt="">
+                                <p>Anne Frank</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">7</p>
+                                <img src="/assets/hamlet.jpg" alt="">
+                                <p>Hamlet</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">8</p>
+                                <img src="/assets/Anne Frank.jpg" alt="">
+                                <p>Anne Frank</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">9</p>
+                                <img src="/assets/hamlet.jpg" alt="">
+                                <p>Hamlet</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="most-rented-card">
+                                <p class="item-list">10</p>
+                                <img src="/assets/Anne Frank.jpg" alt="">
+                                <p>Anne Frank</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script src="./script/script.js"></script>
+    </div>
+</body>
+
+</html>

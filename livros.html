@@ -21,17 +21,44 @@
 </head>
 
 <body class="theme-container">
-    <nav class="navbar">
-        <div class="img-container">
-            <img class="logo" src="./assets/Capturar.PNG" alt="">
-        </div>
-        <ul class="menu-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="livros.html">Livros</a></li>
-            <li><a href="#">Sugestões dos professores</a></li>
-            <li><a href="#">Área administrativa</a></li>
-        </ul>
-    </nav>
+        <header>
+            <nav class="drop-down-menu" aria-label="Menu móvel">
+                <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="Logo da escola">
+                <div class="img-drop-down">
+                    <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
+                    <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
+                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
+                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="Ícone Login">
+                </div>
+                <div class="drop-down-container">
+                    <img src="./assets/bars-solid (1).svg" alt="Abrir menu">
+                </div>
+            </nav>
+            <nav class="navbar" aria-label="Menu principal">
+                <div class="img-container">
+                    <img class="logo" src="/assets/Capturar.PNG" alt="Logo da escola">
+                </div>
+                <div class="center-menu">
+                    <ul class="menu-list">
+                        <li class="img-nav">
+                            <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="img-nav">
+                            <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
+                            <a href="livros.html">Livros</a>
+                        </li>
+                        <li class="img-nav">
+                            <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
+                            <a href="#">Sugestões dos professores</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-container">
+                    <a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a>
+                </div>
+            </nav>
+        </header>
     <div class="container-center">
         <div class="container" id="container"></div>
     </div>

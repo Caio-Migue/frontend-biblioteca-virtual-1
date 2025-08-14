@@ -32,47 +32,129 @@ body {
     transition: all 400ms ease;
 }
 
-.menu-list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    img{
-        height: 25px;
-        width: 25px;
-        margin-right: 7px;
-    }
-}
-
-.img-nav{
-    display: flex;
-
-}
-
 .navbar {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between; /* separa logo, links e login */
     width: 100%;
-    height: 120px;
-    background-color: transparent;
-    padding-left: 20px;
-    list-style: none;
-
-    ul {
-        list-style: none;
-
-        a {
-            text-decoration: none;
-        }
-    }
+    height: 110px;
+    background: rgba(10, 38, 71, 0.85);
+    box-shadow: 0 4px 18px rgba(10, 38, 71, 0.12);
+    border-radius: 0 0 8px 8px;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-@media(max-width: 768px) {
+.img-container {
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    margin-right: 0;
+}
+
+.logo {
+    height: 95px;
+    width: 95px;
+    border-radius: 100%;
+    margin-left: 0;
+}
+
+.center-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-list a {
+    text-decoration: none; /* Garante que não há sublinhado */
+    color: #e0e7ff;
+    font-family: 'Merriweather', serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+
+.menu-list a:hover,
+.menu-list a:focus {
+    color: #fff;
+    text-shadow: 0 2px 8px #6366f1;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.img-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s cubic-bezier(.4,0,.2,1);
+    border-radius: 4px;
+    padding: 6px 14px;
+    justify-content: center;
+}
+
+.img-nav:hover, .img-nav:focus-within {
+    background: none;
+    box-shadow: none;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    min-width: 160px;
+    justify-content: flex-end;
+}
+
+.login-container a {
+    color: #e0e7ff;
+    font-family: 'Merriweather', serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.login-container a:hover, .login-container a:focus {
+    color: #fff;
+    text-shadow: 0 2px 8px #6366f1;
+}
+
+.login {
+    height: 26px;
+    width: 26px;
+    margin-right: 2px;
+    filter: drop-shadow(0 2px 4px #6366f1aa);
+    transition: filter 0.2s;
+}
+
+.login-container:hover .login {
+    filter: drop-shadow(0 4px 8px #6366f1cc) brightness(1.2);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
     .navbar {
-        display: none;
+        padding: 0 10px;
+    }
+    .menu-list {
+        gap: 12px;
+    }
+    .img-nav {
+        padding: 4px 6px;
+    }
+    .img-nav a {
+        font-size: 0.98rem;
     }
 }
 
@@ -532,19 +614,31 @@ form {
 }
 
 .botao-cadastrar {
-    height: 50px;
-    width: 90px;
-    border-radius: 5px;
-    border-color: #4287d6;
-    background-color: #ddd8c6;
-    color: #8d7f58;
+    height: 48px;
+    width: 170px;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(90deg, #394c47 0%, #5d430f 100%);
+    color: #a4a4a4;
+    font-family: 'Merriweather', serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+    transition: 
+        background 0.3s cubic-bezier(.4,0,.2,1),
+        transform 0.2s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.2s cubic-bezier(.4,0,.2,1);
+    outline: none;
+    margin: 12px 0;
 }
 
-.botao-cadastrar:hover {
-    background-color: rgb(114, 114, 114);
-    color: white;
-    transition: all 200ms;
+.botao-cadastrar:hover, .botao-cadastrar:focus {
+    background: linear-gradient(90deg, #312d26 0%, #12362b 100%);
+    color: #ffffff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.18);
 }
 
 .arrow {
@@ -552,6 +646,120 @@ form {
     width: 30px;
     margin: 20px;
     cursor: pointer;
+}
+
+.genre-grid {
+    margin: 40px auto 32px auto;
+    max-width: 900px;
+    padding: 0 16px;
+    text-align: center;
+}
+
+.genre-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    color: #333;
+}
+
+.genre-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+}
+
+.genre-box {
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+    color: #3b3b5c;
+    font-family: 'Alkatra', cursive;
+    font-size: 1rem;
+    padding: 18px 28px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 
+        background 0.3s cubic-bezier(.4,0,.2,1),
+        transform 0.2s cubic-bezier(.4,0,.2,1),
+        box-shadow 0.2s cubic-bezier(.4,0,.2,1),
+        color 0.2s cubic-bezier(.4,0,.2,1);
+    display: inline-block;
+}
+
+.genre-box:hover, .genre-box:focus {
+    background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+    color: #fff;
+    transform: translateY(-6px) scale(1.07);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.18);
+    outline: none;
+}
+
+.menu-list img,
+.img-nav img,
+.login-container img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    margin-right: 2px;
+    filter: brightness(0) invert(1); /* remove drop-shadow do estado normal */
+    opacity: 0.85;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+    transition: filter 0.2s, opacity 0.2s, background 0.2s;
+}
+
+.img-nav:hover img,
+.login-container:hover img {
+    filter: brightness(1.2) invert(1) drop-shadow(0 2px 8px #6366f1cc); /* drop-shadow só no hover */
+    opacity: 1;
+    background: rgba(99,102,241,0.08);
+}
+
+.icon-home svg {
+    vertical-align: middle;
+    transition: filter 0.2s, stroke 0.2s;
+    filter: drop-shadow(0 1px 4px #6366f1aa);
+}
+.img-nav:hover .icon-home svg {
+    stroke: #fff;
+    filter: drop-shadow(0 2px 8px #6366f1cc);
+}
+
+/* Ícones SVG monocromáticos na navbar */
+.navbar-icon svg {
+    stroke: #e0e7ff; /* cor igual ao Home */
+    fill: none;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    transition: stroke 0.2s, filter 0.2s;
+    filter: drop-shadow(0 1px 4px #6366f1aa);
+}
+
+.img-nav:hover .navbar-icon svg,
+.login-container:hover .navbar-icon svg {
+    stroke: #fff;
+    filter: drop-shadow(0 2px 8px #6366f1cc);
+}
+
+.img-nav a,
+.img-nav img {
+    transition: color 0.2s, filter 0.2s, background 0.2s, opacity 0.2s;
+}
+
+/* Efeito de acender só no hover da div do link */
+.img-nav:hover a,
+.img-nav:focus-within a {
+    color: #fff;
+    text-shadow: 0 2px 8px #6366f1;
+}
+
+.img-nav:hover img,
+.img-nav:focus-within img {
+    filter: brightness(1.2) invert(1) drop-shadow(0 2px 8px #6366f1cc);
+    opacity: 1;
+    background: rgba(99,102,241,0.08);
 }
 
 

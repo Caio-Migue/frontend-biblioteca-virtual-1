@@ -1,134 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- hi -->
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biblioteca virtual da Escola Dep. Oliveira Souza. Encontre livros, recomendações e mais.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
     <title>Biblioteca Escola Dep. Oliveira Souza</title>
 </head>
-
 <body id="body">
     <div class="theme-container" id="toggle-container">
-        <nav class="drop-down-menu">
-            <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="">
-            <div class="img-drop-down">
-                <img class="house" src="/assets/house-solid.svg" alt="">
-                <img class="book" src="/assets/book-solid.svg" alt="">
-                <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="">
-                <img class="login" src="/assets/right-to-bracket-solid.svg" alt="">
-            </div>
-            <div class="drop-down-container">
-                <img src="./assets/bars-solid (1).svg" alt="">
-            </div>
-        </nav>
-        <nav class="navbar">
-            <div class="img-container">
-                <img class="logo" src="/assets/Capturar.PNG" alt="">
-            </div>
-            <ul class="menu-list">
-                <div class="img-nav">
-                    <img class="house" src="/assets/house-solid.svg" alt="">
-                    <li><a href="index.html">Home</a></li>
+        <header>
+            <nav class="drop-down-menu" aria-label="Menu móvel">
+                <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="Logo da escola">
+                <div class="img-drop-down">
+                    <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
+                    <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
+                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
+                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="Ícone Login">
                 </div>
-                <div class="img-nav">
-                    <img class="book" src="/assets/book-solid.svg" alt="">
-                    <li><a href="livros.html">Livros</a></li>
+                <div class="drop-down-container">
+                    <img src="./assets/bars-solid (1).svg" alt="Abrir menu">
                 </div>
-                <div class="img-nav">
-                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="">
-                    <li><a href="#">Sugestões dos professores</a></li>
+            </nav>
+            <nav class="navbar" aria-label="Menu principal">
+                <div class="img-container">
+                    <img class="logo" src="/assets/Capturar.PNG" alt="Logo da escola">
                 </div>
-                <div class="img-nav">
-                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="">
-                    <li><a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a></li>
+                <div class="center-menu">
+                    <ul class="menu-list">
+                        <li class="img-nav">
+                            <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="img-nav">
+                            <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
+                            <a href="livros.html">Livros</a>
+                        </li>
+                        <li class="img-nav">
+                            <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
+                            <a href="#">Sugestões dos professores</a>
+                        </li>
+                    </ul>
                 </div>
-            </ul>
-        </nav>
-        <div class="main">
-            <div class="modal-container">
+                <div class="login-container">
+                    <a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a>
+                </div>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="modal-container" aria-label="Cadastro">
                 <div class="modal-sign-in">
-                    <form action="" name="form" id="submit-form">
-                        <label for="">Nome de usuário</label>
-                        <input id="nome-formulario" type="text">
-                        <label for="">Crie sua senha</label>
-                        <input id="senha-formulario" type="text" type="password">
-                        <label for="">Confirme sua senha</label>
-                        <input id="confirmar-senha" type="text" type="password">
-                        <label for="">telefone</label>
+                    <form name="form" id="submit-form" autocomplete="off">
+                        <label for="nome-formulario">Nome de usuário</label>
+                        <input id="nome-formulario" type="text" required>
+                        <label for="senha-formulario">Crie sua senha</label>
+                        <input id="senha-formulario" type="password" required>
+                        <label for="confirmar-senha">Confirme sua senha</label>
+                        <input id="confirmar-senha" type="password" required>
+                        <label for="telefone-formulario">Telefone</label>
                         <input id="telefone-formulario" type="tel">
-                        <label for="">Email</label>
-                        <input id="email-formulario" type="email">
-                        <label for="">Endereço</label>
+                        <label for="email-formulario">Email</label>
+                        <input id="email-formulario" type="email" required>
+                        <label for="endereco-formulario">Endereço</label>
                         <input id="endereco-formulario" type="text">
-                        <button onclick="submitForm(event)">Enviar</button>
+                        <button type="submit" onclick="submitForm(event)">Enviar</button>
                     </form>
                 </div>
-            </div>
-            <div class="theme-toggle-container">
+            </section>
+            <section class="theme-toggle-container" aria-label="Alternar tema">
                 <div class="button-container" onclick="toggleTheme()">
-                    <button id="btn"></button>
+                    <button id="btn" aria-label="Alternar tema"></button>
                 </div>
-            </div>
-            <section class="slider-wrapper">
+            </section>
+            <section class="slider-wrapper" aria-label="Destaques">
                 <ul class="slides-container" id="slides-container">
                     <li class="slide" id="slide1">
                         <div class="content-slide">
-                            <img src="./assets/Recomendação dos professores.png" alt="">
+                            <img src="./assets/Recomendação dos professores.png" alt="Recomendação dos professores">
                         </div>
                     </li>
                     <li class="slide" id="slide2">
                         <div class="content-slide">
-                            <img src="./assets/Clássicos.png" alt="">
+                            <img src="./assets/Clássicos.png" alt="Livros clássicos">
                         </div>
                     </li>
                     <li class="slide" id="slide3">
                         <div class="content-slide">
-                            <img src="./assets/Aventura.png" alt="">
+                            <img src="./assets/Aventura.png" alt="Livros de aventura">
                         </div>
                     </li>
                     <li class="slide" id="slide4">
                         <div class="content-slide">
-                            <img src="./assets/Fantasia.png" alt="">
+                            <img src="./assets/Fantasia.png" alt="Livros de fantasia">
                         </div>
                     </li>
                     <li class="slide" id="slide5">
                         <div class="content-slide">
-                            <img src="./assets/Romance.png" alt="">
+                            <img src="./assets/Romance.png" alt="Livros de romance">
                         </div>
                     </li>
                 </ul>
             </section>
-            <div class="genre-container">
-
-            </div>
-            <div class="most-rented">
+            <section class="genre-container" aria-label="Gêneros">
+                <div class="genre-grid" aria-label="Gêneros literários">
+                    <h2 class="genre-title">Gêneros Literários</h2>
+                    <div class="genre-boxes">
+                        <a href="#" class="genre-box">Aventura</a>
+                        <a href="#" class="genre-box">Romance</a>
+                        <a href="#" class="genre-box">Fantasia</a>
+                        <a href="#" class="genre-box">Suspense</a>
+                        <a href="#" class="genre-box">Clássicos</a>
+                        <a href="#" class="genre-box">Biografia</a>
+                        <a href="#" class="genre-box">Ficção Científica</a>
+                        <a href="#" class="genre-box">Drama</a>
+                        <a href="#" class="genre-box">Poesia</a>
+                        <a href="#" class="genre-box">Infantil</a>
+                        <!-- Adicione mais gêneros conforme necessário -->
+                    </div>
+                </div>
+            </section>
+            <section class="most-rented" aria-label="Mais alugados">
                 <h1 class="most-rented-title">Mais Alugados</h1>
                 <div class="most-rented-container">
                     <ul class="list-books">
                         <li>
                             <div class="most-rented-card">
                                 <p class="item-list">1</p>
-                                <img src="/assets/hamlet.jpg" alt="">
+                                <img src="/assets/hamlet.jpg" alt="Capa do livro Hamlet">
                                 <p>Hamlet</p>
                             </div>
                         </li>
                         <li>
                             <div class="most-rented-card">
                                 <p class="item-list">2</p>
-                                <img src="/assets/Anne Frank.jpg" alt="">
+                                <img src="/assets/Anne Frank.jpg" alt="Capa do livro Anne Frank">
                                 <p>Anne Frank</p>
                             </div>
                         </li>
@@ -190,11 +198,12 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-        <footer></footer>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Biblioteca Escola Dep. Oliveira Souza</p>
+        </footer>
         <script src="./script/script.js"></script>
     </div>
 </body>
-
 </html>

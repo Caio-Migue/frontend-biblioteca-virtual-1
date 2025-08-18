@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Biblioteca virtual da Escola Dep. Oliveira Souza. Encontre livros, recomendações e mais.">
+    <meta name="description"
+        content="Biblioteca virtual da Escola Dep. Oliveira Souza. Encontre livros, recomendações e mais.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
     <title>Biblioteca Escola Dep. Oliveira Souza</title>
 </head>
+
+<div class="theme-container" id="toggle-container">
 <body id="body">
-    <div class="theme-container" id="toggle-container">
         <header>
             <nav class="drop-down-menu" aria-label="Menu móvel">
-                <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="Logo da escola">
-                <div class="img-drop-down">
-                    <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
-                    <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
-                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
-                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="Ícone Login">
+                <div class="drop-down-header">
+                    <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="Logo da escola">
+                    <button class="drop-down-toggle" aria-label="Abrir menu"
+                        onclick="this.classList.toggle('rotated');document.querySelector('.drop-down-list').classList.toggle('show');">
+                        &#9776;
+                    </button>
                 </div>
-                <div class="drop-down-container">
-                    <img src="./assets/bars-solid (1).svg" alt="Abrir menu">
-                </div>
+                <ul class="drop-down-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="livros.html">Livros</a></li>
+                    <li><a href="#">Sugestões dos professores</a></li>
+                    <li><a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a></li>
+                </ul>
             </nav>
             <nav class="navbar" aria-label="Menu principal">
                 <div class="img-container">
@@ -122,88 +130,67 @@
                     </div>
                 </div>
             </section>
+
+
+
+            <section class="student-highlight" aria-label="Destaque do mês">
+                <h2 class="student-highlight-title">🌟 Destaque do Julho</h2>
+                <div class="student-highlight-card">
+                    <div class="student-photo">
+                        <img src="assets/Gemini_Generated_Image_kca1ekkca1ekkca1.png" alt="Foto do aluno destaque">
+                    </div>
+                    <div class="student-info">
+                        <h3 class="student-name">Fernanda da Silva</h3>
+                        <p class="student-achievement">Alugou <strong>5 livros </strong>no mês!</p>
+                        <span class="student-badge">Leitor(a) número 1</span>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
             <section class="most-rented" aria-label="Mais alugados">
-                <h1 class="most-rented-title">Mais Alugados</h1>
+                <h1 class="most-rented-title">📚 Mais Alugados do Mês</h1>
                 <div class="most-rented-container">
                     <ul class="list-books">
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">1</p>
-                                <img src="/assets/hamlet.jpg" alt="Capa do livro Hamlet">
-                                <p>Hamlet</p>
-                            </div>
+                        <li class="most-rented-card destaque">
+                            <div class="rank-badge gold">1</div>
+                            <img src="/assets/hamlet.jpg" alt="Capa do livro Hamlet">
+                            <p class="book-title">Hamlet</p>
+                            <span class="badge-top">TOP 1</span>
                         </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">2</p>
-                                <img src="/assets/Anne Frank.jpg" alt="Capa do livro Anne Frank">
-                                <p>Anne Frank</p>
-                            </div>
+                        <li class="most-rented-card">
+                            <div class="rank-badge silver">2</div>
+                            <img src="/assets/Anne Frank.jpg" alt="Capa do livro Anne Frank">
+                            <p class="book-title">Anne Frank</p>
                         </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">3</p>
-                                <img src="/assets/hamlet.jpg" alt="">
-                                <p>Hamlet</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">4</p>
-                                <img src="/assets/Anne Frank.jpg" alt="">
-                                <p>Anne Frank</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">5</p>
-                                <img src="/assets/hamlet.jpg" alt="">
-                                <p>Hamlet</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">6</p>
-                                <img src="/assets/Anne Frank.jpg" alt="">
-                                <p>Anne Frank</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">7</p>
-                                <img src="/assets/hamlet.jpg" alt="">
-                                <p>Hamlet</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">8</p>
-                                <img src="/assets/Anne Frank.jpg" alt="">
-                                <p>Anne Frank</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">9</p>
-                                <img src="/assets/hamlet.jpg" alt="">
-                                <p>Hamlet</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="most-rented-card">
-                                <p class="item-list">10</p>
-                                <img src="/assets/Anne Frank.jpg" alt="">
-                                <p>Anne Frank</p>
-                            </div>
+                        <li class="most-rented-card">
+                            <div class="rank-badge bronze">3</div>
+                            <img src="/assets/hamlet.jpg" alt="Capa do livro Hamlet">
+                            <p class="book-title">Hamlet</p>
                         </li>
                     </ul>
                 </div>
             </section>
+
+
+
+
+
         </main>
-        <footer>
-            <p>&copy; 2025 Biblioteca Escola Dep. Oliveira Souza</p>
-        </footer>
-        <script src="./script/script.js"></script>
+
+    </body>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Biblioteca Escola Dep. Oliveira Souza. Todos os direitos reservados.</p>
+        <p>Desenvolvido pelos alunos do curso técnico em informática, 3º ano</p>
     </div>
-</body>
+</footer>
+
+<script src="./script/script.js"></script>
 </html>

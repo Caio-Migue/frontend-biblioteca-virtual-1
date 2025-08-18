@@ -1,73 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- // caio, cuidado com os anuncios -->
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
-    <title>Biblioteca Escola Dep. Oliveira Souza</title>
+    <title>Cadastro de Livro - Biblioteca Escola Dep. Oliveira Souza</title>
 </head>
 
 <body class="theme-container">
-        <header>
-            <nav class="drop-down-menu" aria-label="Menu móvel">
-                <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="Logo da escola">
-                <div class="img-drop-down">
-                    <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
-                    <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
-                    <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
-                    <img class="login" src="/assets/right-to-bracket-solid.svg" alt="Ícone Login">
-                </div>
-                <div class="drop-down-container">
-                    <img src="./assets/bars-solid (1).svg" alt="Abrir menu">
-                </div>
-            </nav>
-            <nav class="navbar" aria-label="Menu principal">
-                <div class="img-container">
-                    <img class="logo" src="/assets/Capturar.PNG" alt="Logo da escola">
-                </div>
-                <div class="center-menu">
-                    <ul class="menu-list">
-                        <li class="img-nav">
-                            <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="img-nav">
-                            <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
-                            <a href="livros.html">Livros</a>
-                        </li>
-                        <li class="img-nav">
-                            <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
-                            <a href="#">Sugestões dos professores</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="login-container">
-                    <a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a>
-                </div>
-            </nav>
-        </header>
-    <div class="container-center">
-        <div class="container" id="container"></div>
-    </div>
-    <div class="cadastrar-livro">
-        <a href="livros-form.html"><button class="botao-cadastrar">Cadastrar livro</button></a>
-    </div>
-    <script src="./script/script.js"></script>
+    <header>
+        <nav class="drop-down-menu" aria-label="Menu móvel">
+            <img class="logo-drop-down" src="/assets/Capturar.PNG" alt="Logo da escola">
+            <div class="img-drop-down">
+                <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
+                <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
+                <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
+                <img class="login" src="/assets/right-to-bracket-solid.svg" alt="Ícone Login">
+            </div>
+            <div class="drop-down-container">
+                <img src="./assets/bars-solid (1).svg" alt="Abrir menu">
+            </div>
+        </nav>
+        <nav class="navbar" aria-label="Menu principal">
+            <div class="img-container">
+                <img class="logo" src="/assets/Capturar.PNG" alt="Logo da escola">
+            </div>
+            <div class="center-menu">
+                <ul class="menu-list">
+                    <li class="img-nav">
+                        <img class="house" src="/assets/house-solid.svg" alt="Ícone Home">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="img-nav">
+                        <img class="book" src="/assets/book-solid.svg" alt="Ícone Livros">
+                        <a href="livros.html">Livros</a>
+                    </li>
+                    <li class="img-nav">
+                        <img class="teacher" src="/assets/person-chalkboard-solid.svg" alt="Ícone Professor">
+                        <a href="#">Sugestões dos professores</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-container">
+                <a href="#" onclick="handleSignInModal()">Entrar/Cadastrar</a>
+            </div>
+        </nav>
+    </header>
 
+    <main class="container-center">
+        
+        <form id="bookForm" class="book-form">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" required maxlength="200">
+            </div>
 
+            <div>
+                <label for="autor">Autor(es):</label>
+                <input type="text" id="autor" placeholder="Separar múltiplos autores por vírgula" required>
+            </div>
+
+            <div>
+                <label for="editora">Editora:</label>
+                <input type="text" id="editora" required maxlength="100">
+            </div>
+
+            <div>
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn">
+            </div>
+
+            <div>
+                <label for="anoPublicacao">Ano de Publicação:</label>
+                <input type="number" id="anoPublicacao" required min="1000" max="9999">
+            </div>
+
+            <div>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" required min="0" value="1">
+            </div>
+
+            <div>
+                <label for="descricao">Resumo:</label>
+                <textarea id="descricao" maxlength="1000"></textarea>
+            </div>
+
+            <div>
+                <label for="genero">Gênero Literário:</label>
+                <select class="form-select" id="genero" required>
+                    <option value="">Selecione um gênero</option>
+                    <option value="1">Ficção</option>
+                    <option value="2">Não-ficção</option>
+                    <option value="3">Romance</option>
+                    <option value="4">Fantasia</option>
+                </select>
+            </div>
+
+            <button type="submit">Cadastrar Livro</button>
+        </form>
+    </main>
+
+    <script src="./script/createBook.js"></script>
 </body>
-
 </html>

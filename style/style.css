@@ -3,12 +3,9 @@ html,
 body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    font-family: "Merriweather", serif;
-    font-weight: 300;
     font-style: normal;
-    overflow-x: hidden;
-    max-width: 100vw;
+    overflow-x: hidden; 
+    background-color: #579BB1;
 }
 
 /* Evita que elementos cresçam além da largura */
@@ -37,11 +34,11 @@ body {
     align-items: center;
     justify-content: space-between; /* separa logo, links e login */
     width: 100%;
-    height: 110px;
+    height: 120px;
     background: rgba(10, 38, 71, 0.85);
     box-shadow: 0 4px 18px rgba(10, 38, 71, 0.12);
-    border-radius: 0 0 8px 8px;
-    padding: 0 40px;
+    border-radius: 0 0 6px 6px;
+    padding: 0 30px;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -50,14 +47,14 @@ body {
 .img-container {
     display: flex;
     align-items: center;
-    min-width: 120px;
+    min-width: 150px;
     margin-right: 0;
 }
 
 .logo {
     height: 95px;
     width: 95px;
-    border-radius: 100%;
+    border-radius: 50%;
     margin-left: 0;
 }
 
@@ -159,21 +156,100 @@ body {
 }
 
 .drop-down-menu {
-    width: 400px;
-    background-color: #0A2647;
+    display: none;
+    background: #0A2647;
+    padding: 0 16px;
+    box-shadow: 0 4px 18px rgba(10, 38, 71, 0.12);
+    position: relative;
+    z-index: 100;
+}
+
+.drop-down-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    position: relative;
+}
+
+.logo-drop-down {
+    height: 48px;
+    width: 48px;
+    border-radius: 100%;
+}
+
+.drop-down-toggle {
+    background: none;
+    border: none;
+    color: #c5c5c5;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.4s cubic-bezier(.4,0,.2,1);
+    margin-left: auto; /* garante que fique à direita */
+}
+
+.drop-down-toggle.rotated {
+    transform: rotate(90deg);
+}
+
+.drop-down-toggle:hover {
+    color: rgb(238, 238, 238);
+}
+
+.drop-down-list {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    background: #0A2647;
+    box-shadow: 0 8px 24px rgba(10, 38, 71, 0.18);
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 24px 0 24px 0;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.2s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
 }
 
-.drop-down-container {
-    img {
-        width: 20px;
-        color: white;
-    }
+.drop-down-list.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
-@media(min-width: 768px) {
+.drop-down-list li a {
+    color: #e0e7ff;
+    font-family: 'Merriweather', serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    display: block;
+}
+
+.drop-down-list li a:hover,
+.drop-down-list li a:focus {
+    background: rgba(99,102,241,0.14);
+    color: #fff;
+}
+
+/* Só aparece em telas pequenas */
+@media (max-width: 768px) {
     .drop-down-menu {
+        display: block;
+    }
+    .navbar {
+        display: none;
+    }
+    .logo-drop-down{
         display: none;
     }
 }
@@ -181,6 +257,8 @@ body {
 .main {
     margin: 1rem;
     padding: 0;
+    height: 100%;
+
 }
 
 @media(max-width: 768px) {
@@ -190,9 +268,10 @@ body {
 }
 
 .logo-drop-down{
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     border-radius: 100%;
+    position: absolute;
 }
 
 a {
@@ -204,8 +283,8 @@ a:hover {
 }
 
 .logo {
-    height: 95px;
-    width: 95px;
+    height: 100px;
+    width: 100px;
     border-radius: 100%;
 }
 
@@ -228,7 +307,9 @@ a:hover {
     box-sizing: border-box;
 }
 
-.container {
+
+
+.book-container {
     height: 70vh;
     background-color: rgb(255, 255, 255);
     display: flex;
@@ -238,6 +319,10 @@ a:hover {
     justify-content: center;
     padding-top: 25px;
 }
+
+
+
+
 
 .card {
     background-color: #ddd8c6;
@@ -257,12 +342,6 @@ a:hover {
     width: 90%;
     margin-bottom: 10px;
 }
-
-/* .card img:hover {
-    height: 305px;
-    width: 205px;
-    transition: all 200ms;
-} */
 
 .div-cover {
     height: 305px;
@@ -431,61 +510,166 @@ a:hover {
 }
 
 .most-rented {
-    width: 100%;
-    background-color: #ffffff;
+    background: #f5f3e7;
+    padding: 48px 0 64px 0;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.most-rented-title {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    color: #356859;
     text-align: center;
-    padding: 0;
-    box-shadow: 0 5px 5px #242424;
-    border-radius: 2px;
+    margin-bottom: 36px;
+    letter-spacing: 1px;
 }
 
 .most-rented-container {
-    width: 100%;
-    height: auto;
-    padding: 30px 50px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 100%;
+    padding: 0 24px;
+}
+
+.list-books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 32px;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .most-rented-card {
-    background-color: #9bb6d4;
-    color: #d3dfdf;
-    align-items: center;
-    height: 100px;
-    width: 200px;
-    border: #242424 1px solid;
-    margin: 5px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+    padding: 18px 16px 14px 16px;
     display: flex;
-    padding: 2px;
-    font-size: 15px;
+    flex-direction: column;
+    align-items: center;
+    min-width: 160px;
+    max-width: 180px;
+    transition: box-shadow 0.3s, transform 0.2s;
     position: relative;
-    text-shadow: #242424 1px 1px;
-    font-family: "Alkatra", system-ui;
-    font-optical-sizing: auto;
-    font-weight: bold;
 }
 
-.most-rented-card img {
-    height: 90px;
-    width: 70px;
-    margin-right: 5px;
-    position: relative;
+.most-rented-card:hover {
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+    transform: translateY(-4px) scale(1.04);
 }
 
 .item-list {
-    font-family: "Alkatra", system-ui;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
     position: absolute;
-    z-index: 10;
-    bottom: 36px;
-    color: rgb(187, 218, 13);
-    text-shadow: #242424 2px 2px;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #356859;
+    color: #fffbe6;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+    z-index: 2;
+    border: 3px solid #e3b04b;
 }
 
+.most-rented-card img {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 24px 0 12px 0;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+    background: #e3e8e1;
+}
+
+.book-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.04rem;
+    color: #356859;
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: #f5f3e7;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+/* Destaque para o primeiro livro */
+.most-rented-card.destaque {
+    border: 10px solid #e3b04b;
+    box-shadow: 0 8px 32px rgba(227, 176, 75, 0.18), 0 2px 12px rgba(44, 62, 80, 0.10);
+    z-index: 3;
+}
+
+.most-rented-card.destaque .item-list {
+    background: #e3b04b;
+    color: #356859;
+    border: 3px solid #356859;
+}
+
+.badge-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e3b04b;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(227, 176, 75, 0.18);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+    .most-rented-container {
+        gap: 16px;
+        padding: 0 8px;
+    }
+    .list-books {
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .most-rented-card {
+        min-width: 120px;
+        max-width: 140px;
+        padding: 12px 6px 10px 6px;
+    }
+    .most-rented-card img {
+        width: 70px;
+        height: 100px;
+        margin: 16px 0 8px 0;
+    }
+    .item-list {
+        width: 26px;
+        height: 26px;
+        font-size: 0.95rem;
+        top: -12px;
+        border-width: 2px;
+    }
+    .badge-top {
+        font-size: 0.8rem;
+        padding: 2px 6px;
+        top: 6px;
+        right: 6px;
+    }
+}
 .list-books {
     width: 100%;
     list-style-type: none;
@@ -503,6 +687,9 @@ footer {
     display: flex;
     justify-content: end;
     margin-bottom: 2px;
+    position: absolute;
+    z-index: 100;
+    right: 20px;
 }
 
 .button-container {
@@ -513,6 +700,8 @@ footer {
     margin-right: 10px;
     display: flex;
     align-items: center;
+    border: #147c86 2px solid;
+
 
     button {
         border-radius: 100%;
@@ -531,9 +720,23 @@ footer {
 }
 
 .modal-sign-in {
-    height: 400px;
-    width: 250px;
-    background-color: #9bb6d4;
+    height: 600px;
+    width: 350px;
+    background-color: #073566;
+    color: #fffbe6;
+    border-radius: 5px;
+    button{
+        margin-top: 15px;
+        background-color: #f4e8ae;
+    }
+}
+
+.modal-title {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #e3b04b;
 }
 
 .modal-container {
@@ -659,7 +862,7 @@ form {
     font-family: 'Merriweather', serif;
     font-size: 1.6rem;
     margin-bottom: 18px;
-    color: #333;
+    color: #c6d5e8;
 }
 
 .genre-boxes {
@@ -670,7 +873,7 @@ form {
 }
 
 .genre-box {
-    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    background: linear-gradient(135deg, #e0e7ff 0%, #f4e8ae 100%);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
     color: #3b3b5c;
@@ -762,5 +965,298 @@ form {
     background: rgba(99,102,241,0.08);
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+}
 
 
+
+.most-rented {
+    padding: 2rem 1rem;
+    text-align: center;
+    background: linear-gradient(135deg, #00000022 0%);
+}
+
+.most-rented-title {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #484848;
+}
+
+.list-books {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.most-rented-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 160px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.most-rented-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.most-rented-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.book-title {
+    margin-top: 0.8rem;
+    font-weight: bold;
+    color: #444;
+    font-size: 1rem;
+}
+
+.rank-badge {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    font-weight: bold;
+    padding: 0.4rem 0.7rem;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+}
+
+.rank-badge.gold {
+    background: gold;
+    font-size: 3rem;
+
+    /* Efeito glow */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    border-radius: 50%; /* se quiser que fique circular */
+    padding: 10px 20px;
+}
+
+
+.rank-badge.silver {
+    background: silver;
+}
+
+.rank-badge.bronze {
+    background: #cd8032f5;
+}
+
+.badge-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4757;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+
+
+.student-highlight {
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #eef2f3 100%);
+    text-align: center;
+}
+
+.student-highlight-title {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.student-highlight-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.student-photo {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ffcc00;
+}
+
+.student-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-info {
+    text-align: left;
+}
+
+.student-name {
+    font-size: 1.5rem;
+    color: #222;
+    margin: 0 0 0.5rem;
+}
+
+.student-achievement {
+    color: #555;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.student-badge {
+    display: inline-block;
+    background: #ffcc00;
+    color: #222;
+    font-weight: bold;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .student-highlight-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .student-info {
+        text-align: center;
+    }
+}
+
+
+
+
+footer {
+    background-color: #0A2647;
+    color: #e0e7ff;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: 'Merriweather', serif;
+}
+
+
+
+
+/* Fonte padrão */
+
+
+/* Container centralizado */
+.container-center {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Título principal */
+.container-center h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Alkatra', cursive;
+    color: #2c3e50;
+}
+
+/* Formulário */
+.book-form div {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.book-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+/* Inputs, select e textarea */
+.book-form input[type="text"],
+.book-form input[type="number"],
+.book-form textarea,
+.book-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.book-form input:focus,
+.book-form textarea:focus,
+.book-form select:focus {
+    border-color: #2980b9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
+}
+
+/* Textarea */
+.book-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Botão */
+.book-form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-form button:hover {
+    background-color: #1c5980;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container-center {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .book-form button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
